@@ -1,1 +1,3 @@
 # SimpleShop
+
+## General Idea
