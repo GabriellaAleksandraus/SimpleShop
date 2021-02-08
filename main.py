@@ -37,9 +37,33 @@ class Single_Character_Parcer(I_Parce):
                 return self.action.Delivery, amount
         return self.action.Skip, 0
 
+###### DATABASE ##########
 
+class I_DB:
+    def add(self, amount):
+        pass
+    def remove(self, amount):
+        pass
+    def staus(self):
+        pass
+    def clear(self):
+        pass
 
+class Ram_DB(I_DB):
+    def __init__(self):
+        self.stock = 0
 
+    def add(self, amount):
+        self.stock = self.stock + amount
+
+    def remove(self, amount):
+        self.stock = self.stock - amount
+
+    def status(self):
+        print("Stock:", self.stock)
+
+    def clear(self):
+        self.stock = 0
 
 ######## MAIN ########
 class Actions:
@@ -49,15 +73,17 @@ class Actions:
     Quit       = 3
     Skip       = 4
 
+
 class Shop:
-    def __init__(self, reader, parcer, action):
+    def __init__(self, reader, parcer, action, saver):
         self.reader = reader
         self.parcer = parcer
         self.action = action
+        self.saver = saver
 
 
     def start(self):
-        stock = 0
+        self.saver.clear()
         while True:
             text = self.reader.get_info()
             action, amount = self.parcer.parce_info(text)
@@ -66,14 +92,15 @@ class Shop:
             if action == self.action.Quit:
                 break
             if action == self.action.Delivery:
-                stock = stock + amount
+                self.saver.add(amount)
             if action == self.action.Sell:
-                stock = stock - amount
+                self.saver.remove(amount)
             if action == self.action.Show:
-                print("Stock:", stock)
+                self.saver.status()
 
 reader=Command_Line_Input()
 parcer=Single_Character_Parcer(Actions)
+saver=Ram_DB()
 
-shop=Shop(reader, parcer, Actions)
+shop=Shop(reader, parcer, Actions, saver)
 shop.start()
