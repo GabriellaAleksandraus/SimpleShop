@@ -19,3 +19,7 @@ Tolkar
 ### I_Prodcut
 - id
 - price
+
+
+
+Har gjort lite tester men det är inte heltäckande. 

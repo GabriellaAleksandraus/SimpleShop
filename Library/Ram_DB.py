@@ -5,10 +5,12 @@ class Ram_DB(I_DB):
         self.stock = 0
 
     def add(self, amount):
-        self.stock = self.stock + amount
+        if amount >= 0:
+            self.stock = self.stock + amount
 
     def remove(self, amount):
-        self.stock = self.stock - amount
+        if amount >=0 and self.stock > amount:
+            self.stock = self.stock - amount
 
     def status(self):
         print("Stock:", self.stock)

@@ -11,9 +11,28 @@ class TestRam_DB(unittest.TestCase):
         r.add(-3)
         self.assertEqual(r.stock, 8)
         with self.assertRaises(TypeError):
-            r.add(-3)
-            #gör så att man inte kan lägga in - på add
+           r.add("hej")
+        self.assertEqual(r.stock, 8)
             #-m unittest Tests.Ram_DB_test
+
+    def test_remove(self):
+        r=Ram_DB()
+        r.remove(3)
+        self.assertEqual(r.stock, 0)
+        r.remove(-3)
+        self.assertEqual(r.stock, 0)
+        r.stock = 5
+        r.remove(2)
+        self.assertEqual(r.stock, 3)
+        r.remove(4)
+        self.assertEqual(r.stock, 3)
+        r.remove(-2)
+        self.assertEqual(r.stock, 3)
+        with self.assertRaises(TypeError):
+           r.add("hej")
+        self.assertEqual(r.stock, 3)
+
+    
 
 
 if __name__ == '__main__':
