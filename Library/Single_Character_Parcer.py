@@ -8,9 +8,9 @@ class Single_Character_Parcer(I_Parce):
         if len(text) == 0:
             return self.action.Skip, 0
         first_letter = text[0].upper()
-        if first_letter == "L":
+        if first_letter == "L" and len(text) == 1:
             return self.action.Show, 0
-        if first_letter == "Q":
+        if first_letter == "Q" and len(text) == 1:
             return self.action.Quit, 0    
         if len(text) > 1:
             the_rest = text[1:]

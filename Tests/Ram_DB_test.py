@@ -32,6 +32,11 @@ class TestRam_DB(unittest.TestCase):
            r.add("hej")
         self.assertEqual(r.stock, 3)
 
+    def test_clear(self):
+        r=Ram_DB()
+        r.stock = 5
+        r.clear()
+        self.assertEqual(r.stock, 0)
     
 
 
