@@ -37,7 +37,7 @@ python -m unittest discover Tests "*_test.py"
 ```
 python main.py
 ```
-### How To USe
+### How To Use
 - Write I + number (ex I5) for delivery of something with the amount of 5
 - Write S + number (S2) to sell something with the amount of 2
 - Write L to show the stock balance
