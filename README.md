@@ -26,6 +26,9 @@ This is an interface that describes what kind of functionality a database should
 ### Ram_DB
 The Ram_DB implements the functionality that I_DB describes and is responsible for how and where data is stored. You could change this database to another one who can save data between runs if you want to.
 
+### Actions
+Actions contains all the actions that we want to perform. Even though we could technically send numbers or texts between the modules. The action class is a why to make the code more readable.
+
 ### Tests
 I have made some tests but I am well aware of that they don't cover everything. 
 
