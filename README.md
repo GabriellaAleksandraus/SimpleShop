@@ -28,3 +28,17 @@ The Ram_DB implements the functionality that I_DB describes and is responsible f
 
 ### Tests
 I have made some tests but I am well aware of that they don't cover everything. 
+
+### To Run Testes
+```
+python -m unittest discover Tests "*_test.py"
+```
+### To Start
+```
+python main.py
+```
+### How To USe
+- Write I + number (ex I5) for delivery of something with the amount of 5
+- Write S + number (S2) to sell something with the amount of 2
+- Write L to show the stock balance
+- Write Q to Quit
